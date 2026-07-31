@@ -1,10 +1,7 @@
 import { useState, useCallback } from 'react'
 
 const LETTER_CONTENT = [
-  'Happy Girlfriend\'s Day, my dearest lalab. ❤️🌹 Thank you for choosing to love me every single day,',
-  'for believing in me even when I struggle to believe in myself, and for always being my greatest supporter.',
-  'Thank you for caring for me with a love so genuine and selfless that it makes me feel like the luckiest man in the world.',
-  'You are my safe place, my comfort, and one of the greatest blessings in my life.',
+  'Happy Girlfriend\'s Day, my dearest lalab. ❤️🌹 Thank you for choosing to love me every single day, for believing in me even when I struggle to believe in myself, and for always being my greatest supporter. Thank you for caring for me with a love so genuine and selfless that it makes me feel like the luckiest man in the world. You are my safe place, my comfort, and one of the greatest blessings in my life.',
   '',
   'I know I may not be able to give you everything you deserve right now, but I promise that this is not where our story ends.',
   'One day, I\'ll make it all up to you. I\'ll repay every sacrifice, every understanding, every tear, and every moment you\'ve stayed by my side with a love that never stops choosing you.',
