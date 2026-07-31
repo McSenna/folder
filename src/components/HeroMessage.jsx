@@ -77,18 +77,17 @@ export default function HeroMessage({ visible }) {
         {/* Title: three intentional stacked lines, never collapsing into one row */}
         <h1
           id="hero-title"
-          className="font-heading font-semibold text-text-primary animate-glow-pulse mx-auto mt-4 mb-6 flex w-full max-w-[85vw] flex-col items-center justify-center gap-y-1 sm:max-w-md sm:gap-y-2 md:max-w-lg"
+          className="font-heading font-normal text-text-primary mx-auto mt-4 mb-6 flex w-full max-w-[85vw] flex-col items-center justify-center gap-y-0.5 sm:max-w-md sm:gap-y-1 md:max-w-lg"
         >
           {WORDS.map((word, wordIndex) => {
             const delay = 0.35 + wordIndex * 0.2 // ~200ms stagger between lines
             return (
               <span
                 key={word}
-                className="block whitespace-nowrap text-center leading-[0.95] tracking-tight opacity-0 animate-title-line text-[clamp(2.4rem,11vw,3.5rem)] sm:text-[clamp(3.5rem,7vw,5.5rem)] md:text-[clamp(4.5rem,6vw,7rem)]"
+                className="block w-full whitespace-nowrap text-center leading-[1.2] tracking-wide opacity-0 animate-title-line text-[clamp(1.1rem,5vw,1.6rem)] sm:text-[clamp(1.6rem,3vw,2.2rem)] md:text-[clamp(1.8rem,2.4vw,2.6rem)]"
                 style={{
                   animationDelay: `${delay}s`,
                   animationFillMode: 'forwards',
-                  textShadow: '0 2px 10px rgba(247, 202, 219, 0.4)',
                 }}
               >
                 {word}
