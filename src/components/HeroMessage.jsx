@@ -74,23 +74,40 @@ export default function HeroMessage({ visible }) {
           <OrnamentLine />
         </div>
 
+        {/* Hero Title */}
         <h1
           id="hero-title"
-          className="mt-4 mb-8 flex flex-col items-center justify-center font-heading font-semibold text-text-primary"
+          className="mt-6 mb-10 flex flex-col items-center justify-center text-center"
         >
-          {TITLE.map((word, index) => (
-            <span
-              key={word}
-              className="block text-center leading-[0.9] tracking-tight opacity-0 animate-title-line
-                 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
-              style={{
-                animationDelay: `${0.3 + index * 0.2}s`,
-                animationFillMode: "forwards",
-              }}
-            >
-              {word}
-            </span>
-          ))}
+          {TITLE.map((word, index) => {
+            const isMiddle = index === 1
+
+            return (
+              <span
+                key={word}
+                className={`
+                block
+                whitespace-nowrap
+                font-heading
+                font-semibold
+                text-text-primary
+                leading-[0.82]
+                opacity-0
+                animate-title-line
+                ${isMiddle
+                    ? "tracking-[0.05em] text-[clamp(1.8rem,7vw,3.3rem)] sm:text-[clamp(2.8rem,5vw,4.8rem)] md:text-[clamp(3.5rem,4vw,5.5rem)]"
+                    : "tracking-[0.08em] text-[clamp(2.4rem,9vw,4.2rem)] sm:text-[clamp(3.5rem,6vw,5.5rem)] md:text-[clamp(4.5rem,5vw,6.8rem)]"
+                  }
+        `}
+                style={{
+                  animationDelay: `${0.35 + index * 0.25}s`,
+                  animationFillMode: "forwards",
+                }}
+              >
+                {word}
+              </span>
+            )
+          })}
         </h1>
 
         <div
