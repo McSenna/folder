@@ -1,4 +1,4 @@
-const TITLE = "HAPPY GIRLFRIEND'S DAY"
+const WORDS = ["HAPPY", "GIRLFRIEND'S", "DAY"]
 
 const SUBTITLE =
   "Every flower blooms with grace, just as every moment becomes more beautiful because of you. Happy Girlfriend's Day, my love."
@@ -39,6 +39,9 @@ export default function HeroMessage({ visible }) {
     )
   }
 
+  // flatten words into a single char index so animation delays stay continuous
+  let globalIndex = 0
+
   return (
     <section
       className="relative z-20 flex w-full flex-col items-center px-3 text-center sm:px-6"
@@ -76,20 +79,35 @@ export default function HeroMessage({ visible }) {
 
         <h1
           id="hero-title"
-          className="font-heading text-[clamp(1.5rem,8vw,4.25rem)] font-semibold leading-[1.15] tracking-[0.02em] text-text-primary animate-glow-pulse break-words sm:leading-[1.08] sm:tracking-[0.06em]"
+          className="font-heading text-[clamp(1.75rem,9vw,4.25rem)] font-semibold leading-[1.25] tracking-[0.02em] text-text-primary animate-glow-pulse sm:leading-[1.08] sm:tracking-[0.06em]"
         >
-          {TITLE.split('').map((char, i) => (
+          {WORDS.map((word, wordIndex) => (
             <span
-              key={`${char}-${i}`}
-              className="inline-block opacity-0 animate-letter-reveal"
-              style={{
-                animationDelay: `${0.35 + i * 0.042}s`,
-                animationFillMode: 'forwards',
-                minWidth: char === ' ' ? '0.3em' : undefined,
-              }}
-              aria-hidden={char === ' '}
+              key={word}
+              className="block sm:inline-block"
             >
-              {char === ' ' ? '\u00A0' : char}
+              {word.split('').map((char) => {
+                const delay = 0.35 + globalIndex * 0.042
+                globalIndex += 1
+                return (
+                  <span
+                    key={`${char}-${globalIndex}`}
+                    className="inline-block opacity-0 animate-letter-reveal"
+                    style={{
+                      animationDelay: `${delay}s`,
+                      animationFillMode: 'forwards',
+                    }}
+                  >
+                    {char}
+                  </span>
+                )
+              })}
+              {/* space between words, only rendered inline on desktop */}
+              {wordIndex < WORDS.length - 1 && (
+                <span className="hidden sm:inline-block" style={{ width: '0.35em' }}>
+                  &nbsp;
+                </span>
+              )}
             </span>
           ))}
         </h1>
