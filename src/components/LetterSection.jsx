@@ -2,16 +2,14 @@ import { useState, useCallback } from 'react'
 
 const LETTER_CONTENT = [
   'Happy Girlfriend\'s Day, my dearest lalab. ❤️🌹 Thank you for choosing to love me every single day,',
-  'for believing in me even when I struggle to believe in myself, and for always being my greatest',
-  'supporter. Thank you for caring for me with a love so genuine and selfless that it makes me feel like',
-  'the luckiest man in the world. You are my safe place, my comfort, and one of the greatest blessings in my life.',
+  'for believing in me even when I struggle to believe in myself, and for always being my greatest supporter.',
+  'Thank you for caring for me with a love so genuine and selfless that it makes me feel like the luckiest man in the world.',
+  'You are my safe place, my comfort, and one of the greatest blessings in my life.',
   '',
-  'I know I may not be able to give you everything you deserve right now, but I promise that this is not',
-  'where our story ends. One day, I\'ll make it all up to you. I\'ll repay every sacrifice, every understanding,',
-  'every tear, and every moment you\'ve stayed by my side with a love that never stops choosing you.',
-  'Until that day comes, please hold my hand a little longer, because every step I take is for us and for the',
-  'beautiful future we\'ll build together. I love you more than words could ever express, today, tomorrow,',
-  'and for the rest of my life. Happy Girlfriend\'s Day, my forever love. 🤍',
+  'I know I may not be able to give you everything you deserve right now, but I promise that this is not where our story ends.',
+  'One day, I\'ll make it all up to you. I\'ll repay every sacrifice, every understanding, every tear, and every moment you\'ve stayed by my side with a love that never stops choosing you.',
+  'Until that day comes, please hold my hand a little longer, because every step I take is for us and for the beautiful future we\'ll build together.',
+  'I love you more than words could ever express, today, tomorrow, and for the rest of my life. Happy Girlfriend\'s Day, my forever love. 🤍',
 ]
 
 /* ── Decorative SVG envelope component ── */
@@ -25,41 +23,41 @@ function EnvelopeSVG({ isOpen }) {
       <defs>
         {/* Envelope body gradient — warm ivory */}
         <linearGradient id="env-body" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stopColor="#fdf6ee" />
-          <stop offset="50%"  stopColor="#f8ece0" />
+          <stop offset="0%" stopColor="#fdf6ee" />
+          <stop offset="50%" stopColor="#f8ece0" />
           <stop offset="100%" stopColor="#f2e2d0" />
         </linearGradient>
         {/* Envelope interior (visible when open) */}
         <linearGradient id="env-interior" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stopColor="#e8d8c8" />
+          <stop offset="0%" stopColor="#e8d8c8" />
           <stop offset="100%" stopColor="#d4c0aa" />
         </linearGradient>
         {/* Flap gradient */}
         <linearGradient id="env-flap" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%"   stopColor="#f5ebe0" />
-          <stop offset="70%"  stopColor="#ecdcc8" />
+          <stop offset="0%" stopColor="#f5ebe0" />
+          <stop offset="70%" stopColor="#ecdcc8" />
           <stop offset="100%" stopColor="#e0ccb8" />
         </linearGradient>
         {/* Side flap left */}
         <linearGradient id="env-side-l" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%"   stopColor="#ecdccc" />
+          <stop offset="0%" stopColor="#ecdccc" />
           <stop offset="100%" stopColor="#f5ede0" />
         </linearGradient>
         {/* Side flap right */}
         <linearGradient id="env-side-r" x1="0" y1="0" x2="1" y2="0">
-          <stop offset="0%"   stopColor="#f5ede0" />
+          <stop offset="0%" stopColor="#f5ede0" />
           <stop offset="100%" stopColor="#ecdccc" />
         </linearGradient>
         {/* Rose-gold accent */}
         <linearGradient id="rg-accent" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%"   stopColor="#d4a8b4" />
-          <stop offset="50%"  stopColor="#c08898" />
+          <stop offset="0%" stopColor="#d4a8b4" />
+          <stop offset="50%" stopColor="#c08898" />
           <stop offset="100%" stopColor="#b07888" />
         </linearGradient>
         {/* Wax seal gradient */}
         <radialGradient id="wax-seal" cx="40%" cy="35%" r="65%">
-          <stop offset="0%"   stopColor="#e05060" />
-          <stop offset="50%"  stopColor="#c03848" />
+          <stop offset="0%" stopColor="#e05060" />
+          <stop offset="50%" stopColor="#c03848" />
           <stop offset="100%" stopColor="#901828" />
         </radialGradient>
         <filter id="env-shadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -255,8 +253,8 @@ function LetterCard({ onClose }) {
                   i === 0
                     ? 'font-heading text-[clamp(1rem,2.6vw,1.15rem)] font-medium italic'
                     : i >= LETTER_CONTENT.length - 2
-                    ? 'font-heading text-[clamp(0.95rem,2.4vw,1.1rem)] font-medium italic'
-                    : ''
+                      ? 'font-heading text-[clamp(0.95rem,2.4vw,1.1rem)] font-medium italic'
+                      : ''
                 }
               >
                 {line}
@@ -298,18 +296,16 @@ function SectionHeader({ visible }) {
   return (
     <header className="mb-14 text-center sm:mb-16">
       <p
-        className={`mb-3 font-body text-[0.68rem] uppercase tracking-[0.28em] text-rose-gold/65 opacity-0 ${
-          visible ? 'animate-fade-in' : ''
-        }`}
+        className={`mb-3 font-body text-[0.68rem] uppercase tracking-[0.28em] text-rose-gold/65 opacity-0 ${visible ? 'animate-fade-in' : ''
+          }`}
         style={{ animationDelay: '0.05s', animationFillMode: 'forwards' }}
       >
         ✦ For You, Always ✦
       </p>
       <h2
         id="letter-heading"
-        className={`font-heading text-[clamp(2rem,5vw,3.4rem)] font-semibold tracking-[0.04em] text-text-primary opacity-0 ${
-          visible ? 'animate-section-reveal' : ''
-        }`}
+        className={`font-heading text-[clamp(2rem,5vw,3.4rem)] font-semibold tracking-[0.04em] text-text-primary opacity-0 ${visible ? 'animate-section-reveal' : ''
+          }`}
         style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
       >
         A Letter From My Heart
@@ -321,10 +317,10 @@ function SectionHeader({ visible }) {
         <svg viewBox="0 0 260 14" className="mx-auto h-3 w-44 sm:w-52" aria-hidden="true">
           <defs>
             <linearGradient id="sec-orn" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%"   stopColor="transparent" />
-              <stop offset="25%"  stopColor="#C88B99" stopOpacity="0.5" />
-              <stop offset="50%"  stopColor="#F4AFC6" />
-              <stop offset="75%"  stopColor="#C88B99" stopOpacity="0.5" />
+              <stop offset="0%" stopColor="transparent" />
+              <stop offset="25%" stopColor="#C88B99" stopOpacity="0.5" />
+              <stop offset="50%" stopColor="#F4AFC6" />
+              <stop offset="75%" stopColor="#C88B99" stopOpacity="0.5" />
               <stop offset="100%" stopColor="transparent" />
             </linearGradient>
           </defs>
@@ -389,9 +385,8 @@ export default function LetterSection({ visible }) {
 
         {/* ── Envelope container ── */}
         <div
-          className={`relative z-50 flex flex-col items-center gap-6 transition-all duration-500 ${
-            showLetter ? 'opacity-0 pointer-events-none scale-75' : 'opacity-100 scale-100'
-          }`}
+          className={`relative z-50 flex flex-col items-center gap-6 transition-all duration-500 ${showLetter ? 'opacity-0 pointer-events-none scale-75' : 'opacity-100 scale-100'
+            }`}
           style={{ transition: 'opacity 0.4s ease, transform 0.5s ease' }}
         >
           {/* Envelope */}
@@ -399,11 +394,10 @@ export default function LetterSection({ visible }) {
             type="button"
             onClick={handleOpen}
             disabled={isOpen}
-            className={`group relative w-full max-w-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold/60 rounded-xl transition-all duration-500 ${
-              !isOpen
-                ? 'hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(200,139,153,0.35)]'
-                : ''
-            }`}
+            className={`group relative w-full max-w-sm cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-gold/60 rounded-xl transition-all duration-500 ${!isOpen
+              ? 'hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_24px_60px_rgba(200,139,153,0.35)]'
+              : ''
+              }`}
             style={{
               aspectRatio: '3/2',
               animation: !isOpen ? 'envelope-idle 4s ease-in-out infinite' : 'none',
