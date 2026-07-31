@@ -7,7 +7,7 @@ function OrnamentLine({ className = '' }) {
   return (
     <svg
       viewBox="0 0 200 12"
-      className={`h-3 w-32 sm:w-40 ${className}`}
+      className={`h-2.5 w-24 sm:h-3 sm:w-40 ${className}`}
       aria-hidden="true"
     >
       <defs>
@@ -41,25 +41,25 @@ export default function HeroMessage({ visible }) {
 
   return (
     <section
-      className="relative z-20 flex flex-col items-center px-4 text-center sm:px-6"
+      className="relative z-20 flex w-full flex-col items-center px-3 text-center sm:px-6"
       aria-labelledby="hero-title"
       aria-live="polite"
     >
       <div
-        className="relative rounded-3xl border border-white/50 bg-white/20 px-8 py-10 shadow-[0_24px_64px_rgba(200,139,153,0.18),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-xl sm:px-14 sm:py-12"
+        className="relative w-full max-w-[92vw] rounded-2xl border border-white/50 bg-white/20 px-4 py-8 shadow-[0_24px_64px_rgba(200,139,153,0.18),inset_0_1px_0_rgba(255,255,255,0.7)] backdrop-blur-xl sm:max-w-2xl sm:rounded-3xl sm:px-14 sm:py-12"
         style={{
           background:
             'linear-gradient(135deg, rgba(255,255,255,0.35) 0%, rgba(255,234,242,0.25) 50%, rgba(255,255,255,0.2) 100%)',
         }}
       >
         {/* Corner accents */}
-        <span className="absolute left-4 top-4 h-6 w-6 border-l border-t border-rose-gold/40 rounded-tl-lg" aria-hidden="true" />
-        <span className="absolute right-4 top-4 h-6 w-6 border-r border-t border-rose-gold/40 rounded-tr-lg" aria-hidden="true" />
-        <span className="absolute bottom-4 left-4 h-6 w-6 border-b border-l border-rose-gold/40 rounded-bl-lg" aria-hidden="true" />
-        <span className="absolute bottom-4 right-4 h-6 w-6 border-b border-r border-rose-gold/40 rounded-br-lg" aria-hidden="true" />
+        <span className="absolute left-3 top-3 h-5 w-5 border-l border-t border-rose-gold/40 rounded-tl-lg sm:left-4 sm:top-4 sm:h-6 sm:w-6" aria-hidden="true" />
+        <span className="absolute right-3 top-3 h-5 w-5 border-r border-t border-rose-gold/40 rounded-tr-lg sm:right-4 sm:top-4 sm:h-6 sm:w-6" aria-hidden="true" />
+        <span className="absolute bottom-3 left-3 h-5 w-5 border-b border-l border-rose-gold/40 rounded-bl-lg sm:bottom-4 sm:left-4 sm:h-6 sm:w-6" aria-hidden="true" />
+        <span className="absolute bottom-3 right-3 h-5 w-5 border-b border-r border-rose-gold/40 rounded-br-lg sm:bottom-4 sm:right-4 sm:h-6 sm:w-6" aria-hidden="true" />
 
         <span
-          className="mb-4 block text-3xl sm:text-4xl opacity-0 animate-fade-up"
+          className="mb-3 block text-2xl opacity-0 animate-fade-up sm:mb-4 sm:text-4xl"
           style={{ animationDelay: '0.15s', animationFillMode: 'forwards' }}
           role="img"
           aria-label="heart"
@@ -68,7 +68,7 @@ export default function HeroMessage({ visible }) {
         </span>
 
         <div
-          className="mx-auto mb-5 opacity-0 animate-fade-in"
+          className="mx-auto mb-4 opacity-0 animate-fade-in sm:mb-5"
           style={{ animationDelay: '0.25s', animationFillMode: 'forwards' }}
         >
           <OrnamentLine />
@@ -76,7 +76,7 @@ export default function HeroMessage({ visible }) {
 
         <h1
           id="hero-title"
-          className="font-heading text-[clamp(2rem,7.5vw,4.25rem)] font-semibold leading-[1.08] tracking-[0.06em] text-text-primary animate-glow-pulse"
+          className="font-heading text-[clamp(1.5rem,8vw,4.25rem)] font-semibold leading-[1.15] tracking-[0.02em] text-text-primary animate-glow-pulse break-words sm:leading-[1.08] sm:tracking-[0.06em]"
         >
           {TITLE.split('').map((char, i) => (
             <span
@@ -85,7 +85,7 @@ export default function HeroMessage({ visible }) {
               style={{
                 animationDelay: `${0.35 + i * 0.042}s`,
                 animationFillMode: 'forwards',
-                minWidth: char === ' ' ? '0.35em' : undefined,
+                minWidth: char === ' ' ? '0.3em' : undefined,
               }}
               aria-hidden={char === ' '}
             >
@@ -95,14 +95,14 @@ export default function HeroMessage({ visible }) {
         </h1>
 
         <div
-          className="mx-auto mt-5 opacity-0 animate-fade-in"
+          className="mx-auto mt-4 opacity-0 animate-fade-in sm:mt-5"
           style={{ animationDelay: '1.5s', animationFillMode: 'forwards' }}
         >
           <OrnamentLine />
         </div>
 
         <span
-          className="mt-4 block text-3xl sm:text-4xl opacity-0 animate-letter-reveal"
+          className="mt-3 block text-2xl opacity-0 animate-letter-reveal sm:mt-4 sm:text-4xl"
           style={{ animationDelay: '1.65s', animationFillMode: 'forwards' }}
           role="img"
           aria-label="heart"
@@ -111,7 +111,7 @@ export default function HeroMessage({ visible }) {
         </span>
 
         <p
-          className="mx-auto mt-8 max-w-lg font-body text-[clamp(0.95rem,2.5vw,1.12rem)] font-light italic leading-[1.75] text-text-secondary opacity-0 animate-fade-up"
+          className="mx-auto mt-6 max-w-lg font-body text-[clamp(0.85rem,3.2vw,1.12rem)] font-light italic leading-[1.65] text-text-secondary opacity-0 animate-fade-up sm:mt-8 sm:leading-[1.75]"
           style={{ animationDelay: '2.05s', animationFillMode: 'forwards' }}
         >
           &ldquo;{SUBTITLE}&rdquo;
