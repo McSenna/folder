@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import LetterModal from './LetterModal'
+import EnvelopeSVG from './EnvelopeSVG'
 
 export default function LetterSection({ visible }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -10,22 +11,41 @@ export default function LetterSection({ visible }) {
   const closeButtonRef = useRef(null)
   const scrollYRef = useRef(0)
   const bodyStyleRef = useRef({})
+  const openTimeoutRef = useRef(null)
+  const closeTimeoutRef = useRef(null)
 
   const handleOpen = useCallback(() => {
     if (isOpen) return
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current)
+      closeTimeoutRef.current = null
+    }
+
+    setIsClosing(false)
     setIsOpen(true)
-    setTimeout(() => setShowLetter(true), 520)
+
+    openTimeoutRef.current = window.setTimeout(() => {
+      setShowLetter(true)
+      openTimeoutRef.current = null
+    }, 520)
   }, [isOpen])
 
   const handleClose = useCallback(() => {
+    if (!isOpen) return
+    if (openTimeoutRef.current) {
+      clearTimeout(openTimeoutRef.current)
+      openTimeoutRef.current = null
+    }
+
     setIsClosing(true)
-    setShowLetter(false)
-    setTimeout(() => {
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setShowLetter(false)
       setIsOpen(false)
       setIsClosing(false)
+      closeTimeoutRef.current = null
       openButtonRef.current?.focus({ preventScroll: true })
     }, 680)
-  }, [])
+  }, [isOpen])
 
   useEffect(() => {
     const isModalOpen = isOpen || showLetter
@@ -104,6 +124,17 @@ export default function LetterSection({ visible }) {
       closeButtonRef.current?.focus({ preventScroll: true })
     }
   }, [showLetter])
+
+  useEffect(() => {
+    return () => {
+      if (openTimeoutRef.current) {
+        clearTimeout(openTimeoutRef.current)
+      }
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current)
+      }
+    }
+  }, [])
 
   return (
     <section id="letter" className="relative px-4 py-20 sm:px-6 sm:py-28 lg:py-32" aria-labelledby="letter-heading">
