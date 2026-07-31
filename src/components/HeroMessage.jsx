@@ -1,4 +1,4 @@
-const WORDS = ["HAPPY", "GIRLFRIEND'S", "DAY"]
+const WORDS = ["HAPPY", "GIRLFRIEND'S", "DAY!"]
 
 const SUBTITLE =
   "Every flower blooms with grace, just as every moment becomes more beautiful because of you. Happy Girlfriend's Day, my love."
@@ -39,9 +39,6 @@ export default function HeroMessage({ visible }) {
     )
   }
 
-  // flatten words into a single char index so animation delays stay continuous
-  let globalIndex = 0
-
   return (
     <section
       className="relative z-20 flex w-full flex-col items-center px-3 text-center sm:px-6"
@@ -77,25 +74,26 @@ export default function HeroMessage({ visible }) {
           <OrnamentLine />
         </div>
 
+        {/* Title: three intentional stacked lines, never collapsing into one row */}
         <h1
           id="hero-title"
-          className="font-heading font-semibold text-text-primary animate-glow-pulse flex flex-col items-center justify-center space-y-1 sm:space-y-2 mt-4 mb-6"
+          className="font-heading font-semibold text-text-primary animate-glow-pulse mx-auto mt-4 mb-6 flex w-full max-w-[85vw] flex-col items-center justify-center gap-y-1 sm:max-w-md sm:gap-y-2 md:max-w-lg"
         >
           {WORDS.map((word, wordIndex) => {
-            const delay = 0.35 + (wordIndex * 0.2); // ~200ms stagger between lines
+            const delay = 0.35 + wordIndex * 0.2 // ~200ms stagger between lines
             return (
               <span
                 key={word}
-                className="block text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.9] sm:leading-[0.85] opacity-0 animate-title-line"
+                className="block w-full whitespace-nowrap text-center leading-[0.95] tracking-tight opacity-0 animate-title-line text-[clamp(2.4rem,11vw,3.5rem)] sm:text-[clamp(3.5rem,7vw,5.5rem)] md:text-[clamp(4.5rem,6vw,7rem)]"
                 style={{
                   animationDelay: `${delay}s`,
                   animationFillMode: 'forwards',
-                  textShadow: '0 2px 10px rgba(247, 202, 219, 0.4)'
+                  textShadow: '0 2px 10px rgba(247, 202, 219, 0.4)',
                 }}
               >
                 {word}
               </span>
-            );
+            )
           })}
         </h1>
 
