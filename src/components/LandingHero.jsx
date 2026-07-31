@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import BackgroundEffects from './BackgroundEffects'
 import HeroBouquet from './HeroBouquet'
-import GreetingSection from './GreetingSection'
+import HeroMessage from './HeroMessage'
 import MemoriesSection from './MemoriesSection'
 import LetterSection from './LetterSection'
 import FloatingPetals from './FloatingPetals'
@@ -35,7 +35,7 @@ export default function LandingHero() {
             showMessage || isRevealed ? 'z-20' : 'z-0 opacity-0'
           }`}
         >
-          <GreetingSection visible={showMessage || isRevealed} />
+          <HeroMessage visible={showMessage || isRevealed} />
         </div>
 
         <HeroBouquet
