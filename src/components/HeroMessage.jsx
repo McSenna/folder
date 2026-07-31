@@ -1,4 +1,4 @@
-const WORDS = ["HAPPY", "GIRLFRIEND'S", "DAY!"]
+const TITLE = ["HAPPY", "GIRLFRIEND'S", "DAY!"]
 
 const SUBTITLE =
   "Every flower blooms with grace, just as every moment becomes more beautiful because of you. Happy Girlfriend's Day, my love."
@@ -74,26 +74,23 @@ export default function HeroMessage({ visible }) {
           <OrnamentLine />
         </div>
 
-        {/* Title: three intentional stacked lines, never collapsing into one row */}
         <h1
           id="hero-title"
-          className="font-heading font-normal text-text-primary mx-auto mt-4 mb-6 flex w-full max-w-[85vw] flex-col items-center justify-center gap-y-0.5 sm:max-w-md sm:gap-y-1 md:max-w-lg"
+          className="mt-4 mb-8 flex flex-col items-center justify-center font-heading font-semibold text-text-primary"
         >
-          {WORDS.map((word, wordIndex) => {
-            const delay = 0.35 + wordIndex * 0.2 // ~200ms stagger between lines
-            return (
-              <span
-                key={word}
-                className="block w-full whitespace-nowrap text-center leading-[1.2] tracking-wide opacity-0 animate-title-line text-[clamp(1.1rem,5vw,1.6rem)] sm:text-[clamp(1.6rem,3vw,2.2rem)] md:text-[clamp(1.8rem,2.4vw,2.6rem)]"
-                style={{
-                  animationDelay: `${delay}s`,
-                  animationFillMode: 'forwards',
-                }}
-              >
-                {word}
-              </span>
-            )
-          })}
+          {TITLE.map((word, index) => (
+            <span
+              key={word}
+              className="block text-center leading-[0.9] tracking-tight opacity-0 animate-title-line
+                 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"
+              style={{
+                animationDelay: `${0.3 + index * 0.2}s`,
+                animationFillMode: "forwards",
+              }}
+            >
+              {word}
+            </span>
+          ))}
         </h1>
 
         <div
