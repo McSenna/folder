@@ -59,6 +59,7 @@
   --animate-shimmer: shimmer-card 2.5s ease-in-out infinite;
   --animate-spotlight-drift: spotlight-drift 25s ease-in-out infinite;
   --animate-tag-reveal: tag-reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-title-line: title-line 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 /* ════════════════════════════════════════════
@@ -255,6 +256,11 @@
 @keyframes letter-reveal {
   from { opacity: 0; transform: translateY(20px); filter: blur(5px); }
   to { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+@keyframes title-line {
+  0% { opacity: 0; transform: translateY(24px) scale(0.98); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes ripple {

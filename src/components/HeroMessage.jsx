@@ -79,37 +79,24 @@ export default function HeroMessage({ visible }) {
 
         <h1
           id="hero-title"
-          className="font-heading text-[clamp(1.75rem,9vw,4.25rem)] font-semibold leading-[1.25] tracking-[0.02em] text-text-primary animate-glow-pulse sm:leading-[1.08] sm:tracking-[0.06em]"
+          className="font-heading font-semibold text-text-primary animate-glow-pulse flex flex-col items-center justify-center space-y-1 sm:space-y-2 mt-4 mb-6"
         >
-          {WORDS.map((word, wordIndex) => (
-            <span
-              key={word}
-              className="block sm:inline-block"
-            >
-              {word.split('').map((char) => {
-                const delay = 0.35 + globalIndex * 0.042
-                globalIndex += 1
-                return (
-                  <span
-                    key={`${char}-${globalIndex}`}
-                    className="inline-block opacity-0 animate-letter-reveal"
-                    style={{
-                      animationDelay: `${delay}s`,
-                      animationFillMode: 'forwards',
-                    }}
-                  >
-                    {char}
-                  </span>
-                )
-              })}
-              {/* space between words, only rendered inline on desktop */}
-              {wordIndex < WORDS.length - 1 && (
-                <span className="hidden sm:inline-block" style={{ width: '0.35em' }}>
-                  &nbsp;
-                </span>
-              )}
-            </span>
-          ))}
+          {WORDS.map((word, wordIndex) => {
+            const delay = 0.35 + (wordIndex * 0.2); // ~200ms stagger between lines
+            return (
+              <span
+                key={word}
+                className="block text-5xl sm:text-7xl md:text-8xl tracking-tight leading-[0.9] sm:leading-[0.85] opacity-0 animate-title-line"
+                style={{
+                  animationDelay: `${delay}s`,
+                  animationFillMode: 'forwards',
+                  textShadow: '0 2px 10px rgba(247, 202, 219, 0.4)'
+                }}
+              >
+                {word}
+              </span>
+            );
+          })}
         </h1>
 
         <div
