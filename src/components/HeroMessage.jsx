@@ -84,7 +84,7 @@ export default function HeroMessage({ visible }) {
             return (
               <span
                 key={word}
-                className="block w-full whitespace-nowrap text-center leading-[0.95] tracking-tight opacity-0 animate-title-line text-[clamp(2.4rem,11vw,3.5rem)] sm:text-[clamp(3.5rem,7vw,5.5rem)] md:text-[clamp(4.5rem,6vw,7rem)]"
+                className="block whitespace-nowrap text-center leading-[0.95] tracking-tight opacity-0 animate-title-line text-[clamp(2.4rem,11vw,3.5rem)] sm:text-[clamp(3.5rem,7vw,5.5rem)] md:text-[clamp(4.5rem,6vw,7rem)]"
                 style={{
                   animationDelay: `${delay}s`,
                   animationFillMode: 'forwards',
